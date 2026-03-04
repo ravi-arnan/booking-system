@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BookingInfo from './components/BookingInfo';
@@ -10,13 +10,29 @@ import OurStory from './components/OurStory';
 import ReadyToVisit from './components/ReadyToVisit';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import ReservationPage from './components/ReservationPage';
 
 function App() {
+  const [showReservation, setShowReservation] = useState(false);
+
+  const handleBookTable = () => {
+    setShowReservation(true);
+    window.scrollTo(0, 0);
+  };
+
+  const handleCloseReservation = () => {
+    setShowReservation(false);
+  };
+
+  if (showReservation) {
+    return <ReservationPage onClose={handleCloseReservation} />;
+  }
+
   return (
     <div className="app">
-      <Navbar />
+      <Navbar onBookTable={handleBookTable} />
       <Hero />
-      <BookingInfo />
+      <BookingInfo onBookTable={handleBookTable} />
       <DiningExperience />
       <div className="combined-gallery-section">
         <GuestsImpression />
@@ -24,7 +40,7 @@ function App() {
       </div>
       <GuestReviews />
       <OurStory />
-      <ReadyToVisit />
+      <ReadyToVisit onBookTable={handleBookTable} />
       <FAQ />
       <Footer />
     </div>
@@ -32,3 +48,4 @@ function App() {
 }
 
 export default App;
+

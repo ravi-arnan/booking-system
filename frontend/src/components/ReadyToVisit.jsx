@@ -2,7 +2,7 @@ import React from 'react';
 import './ReadyToVisit.css';
 import heartImg from '../assets/2764.svg';
 
-const ReadyToVisit = () => {
+const ReadyToVisit = ({ onBookTable }) => {
     return (
         <section className="ready-to-visit-section">
             <div className="container ready-container">
@@ -17,7 +17,7 @@ const ReadyToVisit = () => {
                 </p>
 
                 <div className="cta-container-vertical">
-                    <button className="btn-primary w-full ready-btn">RESERVE A TABLE</button>
+                    <button className="btn-primary w-full ready-btn" onClick={onBookTable}>RESERVE A TABLE</button>
                     <button className="btn-white w-full ready-btn">WRITE US ON WHATSAPP</button>
                     <button className="btn-white w-full ready-btn">DIRECTIONS</button>
                 </div>

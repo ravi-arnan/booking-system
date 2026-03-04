@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import logoSvg from '../assets/black.svg';
 
-const Navbar = () => {
+const Navbar = ({ onBookTable }) => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="nav-right">
-                    <button className="book-table-btn">BOOK TABLE</button>
+                    <button className="book-table-btn" onClick={onBookTable}>BOOK TABLE</button>
                 </div>
             </div>
 

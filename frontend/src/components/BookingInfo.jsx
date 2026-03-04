@@ -2,7 +2,7 @@ import React from 'react';
 import './BookingInfo.css';
 import googleLogo from '../assets/Google_Icons-09-512.webp';
 
-const BookingInfo = () => {
+const BookingInfo = ({ onBookTable }) => {
     return (
         <div className="booking-info-wrapper">
             <section className="booking-info container">
@@ -32,7 +32,7 @@ const BookingInfo = () => {
                 </p>
 
                 <div className="cta-container">
-                    <button className="btn-primary w-full max-w-md">RESERVE A TABLE</button>
+                    <button className="btn-primary w-full max-w-md" onClick={onBookTable}>RESERVE A TABLE</button>
                     <button className="btn-white w-full max-w-md">VISIT US NOW</button>
                 </div>
 
