@@ -1,5 +1,6 @@
 import React from 'react';
 import './ReadyToVisit.css';
+import heartImg from '../assets/2764.svg';
 
 const ReadyToVisit = () => {
     return (
@@ -12,7 +13,7 @@ const ReadyToVisit = () => {
                 </p>
 
                 <p className="ready-warning">
-                    <span className="heart-icon">❤️</span> People love us, to minimize wait time, please reserve a table below.
+                    <img src={heartImg} alt="Love" className="heart-icon-img" /> People love us, to minimize wait time, please reserve a table below.
                 </p>
 
                 <div className="cta-container-vertical">

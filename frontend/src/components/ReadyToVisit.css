@@ -33,9 +33,10 @@
     gap: 8px;
 }
 
-.heart-icon {
-    color: #e23b3b;
-    font-size: 1.1rem;
+.heart-icon-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
 
 .cta-container-vertical {

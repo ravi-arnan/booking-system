@@ -5,14 +5,14 @@
 
 .story-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--text-dark);
     margin-bottom: 50px;
 }
 
 .story-content-wrapper {
     position: relative;
-    max-width: 1100px;
+    max-width: 1250px;
     margin: 0 auto;
     display: flex;
     min-height: 600px;
@@ -34,16 +34,16 @@ In the design, it sits behind the image and extends to the right.
 }
 
 .story-text-container {
-    max-width: 600px;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
 }
 
 .story-text-container p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     color: #4a4a4a;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .story-text-container strong {
@@ -70,13 +70,13 @@ In the design, it sits behind the image and extends to the right.
 */
 
 .signature-img {
-    height: 110px;
+    height: 160px;
     width: auto;
     object-fit: contain;
 }
 
 .story-signature-text {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: #555;
 }
 
@@ -88,9 +88,9 @@ The image container that floats over the white box on the left
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 40%;
-    max-width: 450px;
-    height: 90%;
+    width: 45%;
+    max-width: 550px;
+    height: 75%;
     z-index: 2;
     border-radius: 0 30px 0 0;
     /* Simulating the wave/curve shown in design */
@@ -111,7 +111,7 @@ The image container that floats over the white box on the left
     width: 140px;
     height: 140px;
     z-index: 3;
-    background-color: #fce116;
+    background-color: #FFD200;
     /* Yellow color from the design */
     display: flex;
     justify-content: center;
