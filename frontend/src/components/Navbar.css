@@ -5,12 +5,13 @@
     width: 100%;
     z-index: 1000;
     transition: all 0.4s ease;
-    height: 80px;
+    height: 60px;
+    /* Increased back to 60px */
     background-color: #000000;
 }
 
 .navbar.scrolled {
-    height: 70px;
+    height: 60px;
     background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -19,23 +20,26 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
 .nav-left {
     display: flex;
     align-items: center;
     gap: 30px;
+    height: 100%;
 }
 
 .menu-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 24px;
-    height: 16px;
+    width: 28px;
+    /* Increased from 24px */
+    height: 20px;
+    /* Increased from 16px */
     background: transparent;
     padding: 0;
     margin: 0;
@@ -66,7 +70,8 @@
 }
 
 .navbar-logo-img {
-    height: 35px;
+    height: 24px;
+    /* Increased slightly from 20px */
     width: auto;
     filter: brightness(0) invert(1);
     /* Assuming black.svg is black, invert to make it white for the dark header */
@@ -81,13 +86,14 @@
 .book-table-btn {
     height: 100%;
     background-color: #a48274;
-    /* Using the primary color */
     color: #ffffff;
     border: none;
-    padding: 0 40px;
+    padding: 0 80px;
+
     font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    /* Increased from 0.75rem */
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
