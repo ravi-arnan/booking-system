@@ -18,8 +18,10 @@ function App() {
       <Hero />
       <BookingInfo />
       <DiningExperience />
-      <GuestsImpression />
-      <ReviewGallery />
+      <div className="combined-gallery-section">
+        <GuestsImpression />
+        <ReviewGallery />
+      </div>
       <GuestReviews />
       <OurStory />
       <ReadyToVisit />

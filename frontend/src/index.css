@@ -4,15 +4,17 @@
 @import "@fontsource/outfit/700.css";
 
 :root {
-  --primary-color: #a48274; /* Warm brownish/bronze from the screenshot */
-  --secondary-color: #f7f2ed; /* Warm off-white background */
+  --primary-color: #a48274;
+  /* Warm brownish/bronze from the screenshot */
+  --secondary-color: #f7f2ed;
+  /* Warm off-white background */
   --text-dark: #333333;
   --text-light: #ffffff;
   --border-color: #dccbba;
-  
+
   --font-primary: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
-  
+
   --transition: all 0.3s ease;
 }
 
@@ -31,7 +33,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -113,13 +120,13 @@ button {
   letter-spacing: 1px;
   font-size: 0.9rem;
   transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .btn-white:hover {
   background-color: #f0f0f0;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Base Layout Containers */
@@ -127,4 +134,10 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* Grouped Sections */
+.combined-gallery-section {
+  background-color: var(--secondary-color);
+  width: 100%;
 }

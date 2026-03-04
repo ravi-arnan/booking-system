@@ -12,22 +12,7 @@ const Hero = () => {
             </div>
 
             <div className="hero-content">
-                <div className="badges-container">
-                    <div className="badge google-badge">
-                        <span className="g-icon">G</span>
-                        <div className="stars">
-                            ★★★★★
-                        </div>
-                        <span className="rating-text">15.000 Reviews, 4.9 Rating</span>
-                    </div>
-
-                    <div className="badge award-badge">
-                        <span className="award-icon">🏆</span>
-                        <span className="award-text">Bali International Customers<br />Satisfaction Award 2024</span>
-                    </div>
-                </div>
-
-                <h1 className="hero-title">Welcome To THIS IS BALI</h1>
+                {/* Content moved to BookingInfo */}
             </div>
 
             {/* Gradient fade to white at the bottom */}

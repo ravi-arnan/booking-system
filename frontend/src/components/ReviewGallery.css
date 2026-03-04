@@ -1,6 +1,5 @@
 .review-gallery {
-    padding-top: 60px;
-    background-color: var(--secondary-color);
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -73,7 +72,6 @@
 }
 
 .explore-menu-section {
-    background-color: var(--secondary-color);
     padding: 60px 20px;
     display: flex;
     justify-content: center;
