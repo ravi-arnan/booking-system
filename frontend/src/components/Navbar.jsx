@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import logoSvg from '../assets/black.svg';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -37,7 +38,7 @@ const Navbar = () => {
                         )}
                     </button>
                     <div className="logo">
-                        <span className="logo-text">THIS <span className="logo-is">IS</span> BALI</span>
+                        <img src={logoSvg} alt="THIS IS BALI" className="navbar-logo-img" />
                     </div>
                 </div>
 

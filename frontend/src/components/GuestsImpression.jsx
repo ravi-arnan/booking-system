@@ -1,6 +1,16 @@
 import React from 'react';
 import './GuestsImpression.css';
 
+// Import images
+import img1 from '../assets/THIS-IS-BALI-1.webp';
+import img2 from '../assets/THIS-IS-BALI-2.webp';
+import img3 from '../assets/THIS-IS-BALI-3.webp';
+import img4 from '../assets/THIS-IS-BALI-4.webp';
+import img5 from '../assets/THIS-IS-BALI-5.webp';
+import img6 from '../assets/THIS-IS-BALI-6.webp';
+
+const images = [img1, img2, img3, img4, img5, img6];
+
 const GuestsImpression = () => {
     return (
         <section className="guests-impression container">
@@ -9,20 +19,25 @@ const GuestsImpression = () => {
                 <p className="impression-subtitle">Here are some impression shared by our guests.</p>
             </div>
 
-            <div className="impression-grid">
-                <div className="impression-card">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Interior Impression" className="impression-img" />
-                    <div className="play-btn-overlay">
-                        {/* Simulating a video play button if it were a reel */}
+            <div className="impression-carousel">
+                <div className="impression-track">
+                    <div className="impression-slide-group">
+                        {images.map((src, idx) => (
+                            <div className="impression-card" key={`original-${idx}`}>
+                                <img src={src} alt={`Guest Impression ${idx + 1}`} className="impression-img" loading="lazy" />
+                                <div className="play-btn-overlay"></div>
+                            </div>
+                        ))}
                     </div>
-                </div>
-
-                <div className="impression-card">
-                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Food Impression" className="impression-img" />
-                </div>
-
-                <div className="impression-card">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dining Impression" className="impression-img" />
+                    {/* Duplicate group to create infinite scrolling loop */}
+                    <div className="impression-slide-group">
+                        {images.map((src, idx) => (
+                            <div className="impression-card" key={`duplicate-${idx}`}>
+                                <img src={src} alt={`Guest Impression ${idx + 1}`} className="impression-img" loading="lazy" />
+                                <div className="play-btn-overlay"></div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 

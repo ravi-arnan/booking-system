@@ -21,22 +21,48 @@
     font-size: 1rem;
 }
 
-.impression-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.impression-carousel {
     width: 100%;
+    overflow: hidden;
     margin-bottom: 40px;
+    display: flex;
+}
+
+.impression-track {
+    display: flex;
+    width: max-content;
+    animation: scrollCarousel 20s linear infinite;
+}
+
+.impression-carousel:hover .impression-track {
+    animation-play-state: paused;
+}
+
+.impression-slide-group {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+    /* Important: spacing between the end of list 1 and start of list 2 */
+}
+
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .impression-card {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    /* subtle rounding */
-    aspect-ratio: 3 / 4;
-    /* Portrait style like instagram reels/photos */
+    width: 450px;
+    aspect-ratio: 4 / 5;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .impression-img {
@@ -70,14 +96,14 @@
 }
 
 @media (max-width: 900px) {
-    .impression-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .impression-card {
+        width: 350px;
     }
 }
 
 @media (max-width: 600px) {
-    .impression-grid {
-        grid-template-columns: 1fr;
+    .impression-card {
+        width: 280px;
     }
 
     .cta-container-small {

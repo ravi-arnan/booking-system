@@ -61,24 +61,15 @@
 }
 
 .logo {
-    color: #ffffff;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.logo-text {
     display: flex;
     align-items: center;
-    gap: 4px;
 }
 
-.logo-is {
-    font-size: 0.8rem;
-    border: 1px solid #ffffff;
-    padding: 0 2px;
-    letter-spacing: 0;
+.navbar-logo-img {
+    height: 35px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    /* Assuming black.svg is black, invert to make it white for the dark header */
 }
 
 .nav-right {
