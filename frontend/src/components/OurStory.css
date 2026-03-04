@@ -1,0 +1,139 @@
+.our-story-section {
+    padding: 80px 20px;
+    background-color: var(--secondary-color);
+}
+
+.story-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+}
+
+.story-content-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    min-height: 600px;
+}
+
+/* 
+The white background box containing text. 
+In the design, it sits behind the image and extends to the right. 
+*/
+.story-background-box {
+    background-color: #ffffff;
+    width: 85%;
+    margin-left: auto;
+    /* Push to the right */
+    padding: 60px 40px 60px 35%;
+    /* Large padding on the left to make room for overlapping image */
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.story-text-container {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.story-text-container p {
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+.story-text-container strong {
+    color: var(--text-dark);
+}
+
+.underline {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+/* 
+The image container that floats over the white box on the left 
+*/
+.story-image-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 40%;
+    max-width: 450px;
+    height: 90%;
+    z-index: 2;
+    border-radius: 0 30px 0 0;
+    /* Simulating the wave/curve shown in design */
+    overflow: hidden;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-img-badge {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 80px;
+    height: 80px;
+    z-index: 3;
+}
+
+.badge-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 900px) {
+    .story-content-wrapper {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .story-background-box {
+        width: 100%;
+        margin-left: 0;
+        padding: 300px 30px 40px 30px;
+        /* Make room for image on top */
+        margin-top: -250px;
+        /* Pull box up under the image */
+    }
+
+    .story-image-container {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 400px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .story-title {
+        font-size: 2rem;
+    }
+
+    .story-background-box {
+        padding-top: 250px;
+        margin-top: -200px;
+    }
+
+    .story-image-container {
+        height: 300px;
+        border-radius: 8px;
+        /* Simplify corners on mobile */
+    }
+}

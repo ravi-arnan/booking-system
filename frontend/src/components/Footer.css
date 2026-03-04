@@ -1,0 +1,157 @@
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 60px 20px 30px;
+    font-family: var(--font-primary);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-is {
+    font-size: 0.8rem;
+    border: 1px solid #ffffff;
+    padding: 0 2px;
+    letter-spacing: 0;
+}
+
+.footer-mb {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.footer-address {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.6;
+}
+
+.footer-heading {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #cccccc;
+    font-weight: 600;
+}
+
+.footer-payments {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Simulated payment icons for aesthetics */
+.pay-icon {
+    background: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    height: 25px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    font-weight: 800;
+}
+
+.mastercard {
+    position: relative;
+    overflow: hidden;
+}
+
+.mastercard div {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.mastercard div:nth-child(1) {
+    background: #eb001b;
+    left: 8px;
+}
+
+.mastercard div:nth-child(2) {
+    background: #f79e1b;
+    right: 8px;
+    opacity: 0.8;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* right align conceptually based on grid */
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}
+
+.pt-1 {
+    padding-top: 2px;
+    font-size: 1.1rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 30px;
+    color: #666;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-social {
+        align-items: flex-start;
+    }
+}

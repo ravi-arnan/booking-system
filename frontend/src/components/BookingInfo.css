@@ -1,0 +1,98 @@
+.booking-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.subtitle {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    /* Slightly lighter gray */
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.5;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.highlights-box {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+}
+
+.highlights-title {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+.highlights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.highlights-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+.highlights-list li strong {
+    font-weight: 700;
+}
+
+.check-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-dark);
+}
+
+.whatsapp-btn {
+    width: 100%;
+    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+    .description {
+        font-size: 1rem;
+    }
+
+    .highlights-box {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,98 @@
+.dining-experience {
+    padding: 80px 20px;
+}
+
+.dining-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+.dining-title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    flex: 1;
+    max-width: 600px;
+}
+
+.dining-desc {
+    flex: 0 0 300px;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.dining-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.dining-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    /* Slight rounding for a bit of softness */
+}
+
+.dining-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Hover zoom effect on image */
+.dining-card:hover .dining-img {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-family: var(--font-primary);
+    /* Uses main font, not heading */
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+@media (max-width: 992px) {
+    .dining-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dining-desc {
+        flex: auto;
+        max-width: 100%;
+    }
+
+    .dining-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dining-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .dining-title {
+        font-size: 2rem;
+    }
+}
