@@ -9,6 +9,7 @@ import img6 from '../assets/this-is-bali-honey-chicken-1024x1024-1.jpg';
 import img7 from '../assets/eggpant-tomato-1024x1024-1.jpg';
 import img8 from '../assets/this-is-bali-dessert-1024x1024-1.jpg';
 import menuPdf from '../assets/THIS-IS-BALI-Full-Menu.pdf';
+import googleLogo from '../assets/Google_Icons-09-512.webp';
 
 const ReviewGallery = () => {
     return (
@@ -25,7 +26,7 @@ const ReviewGallery = () => {
                     <p className="review-text">
                         I really love the vibes here. The food is typical Indonesian and the flavors are truly authentic. If you're looking for Indonesian food served in an aesthetic way, this is definitely the place.
                     </p>
-                    <div className="g-icon-small mt-3">G</div>
+                    <img src={googleLogo} alt="Google" className="g-icon-small-img mt-3" />
                 </div>
             </div>
 

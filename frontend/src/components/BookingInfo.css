@@ -1,5 +1,9 @@
 .booking-info-wrapper {
-    background: linear-gradient(90deg, #f0e6e0 0%, #fefcfb 50%, #f0e6e0 100%);
+    background-color: #fcfbf9;
+    /* Very light warm base */
+    background-image:
+        radial-gradient(circle at bottom left, #e2d2c8 0%, transparent 60%),
+        radial-gradient(circle at bottom right, #e2d2c8 0%, transparent 60%);
     width: 100%;
     border-bottom: 2px solid var(--border-color);
     padding-top: 50px;
@@ -146,10 +150,10 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.g-icon {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #4285F4;
+.g-icon-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
 
 .stars {

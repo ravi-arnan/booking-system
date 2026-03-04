@@ -1,5 +1,6 @@
 import React from 'react';
 import './BookingInfo.css';
+import googleLogo from '../assets/Google_Icons-09-512.webp';
 
 const BookingInfo = () => {
     return (
@@ -8,7 +9,7 @@ const BookingInfo = () => {
 
                 <div className="badges-container">
                     <div className="badge google-badge">
-                        <span className="g-icon">G</span>
+                        <img src={googleLogo} alt="Google" className="g-icon-img" />
                         <div className="stars">
                             ★★★★★
                         </div>

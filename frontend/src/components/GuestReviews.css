@@ -51,12 +51,12 @@
     margin-bottom: 30px;
 }
 
-.google-logo {
-    color: #4285F4;
-    /* Google Blue */
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: auto;
+.google-logo-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin: auto auto 0 auto;
+    /* Centers horizontally and pushes to bottom */
 }
 
 @media (max-width: 900px) {

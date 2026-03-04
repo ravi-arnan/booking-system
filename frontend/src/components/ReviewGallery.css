@@ -49,10 +49,10 @@
     margin-top: 25px;
 }
 
-.g-icon-small {
-    color: #4285F4;
-    font-weight: bold;
-    font-size: 1.2rem;
+.g-icon-small-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .food-gallery {

@@ -1,6 +1,10 @@
 import React from 'react';
 import './DiningExperience.css';
 
+import img1 from '../assets/THIS-IS-BALI-The-WORLDs-Best-Indonesian-Restaurant-2-768x768.webp';
+import img2 from '../assets/THIS-IS-BALI-The-WORLDs-Best-Indonesian-Restaurant-3-768x768.webp';
+import img3 from '../assets/THIS-IS-BALI-The-WORLDs-Best-Indonesian-Restaurant-1-768x768.webp';
+
 const DiningExperience = () => {
     return (
         <section className="dining-experience">
@@ -16,7 +20,7 @@ const DiningExperience = () => {
                     {/* Column 1 */}
                     <div className="dining-card">
                         <div className="img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Beautiful Ambience" className="dining-img" />
+                            <img src={img1} alt="Beautiful Ambience" className="dining-img" />
                         </div>
                         <h3 className="card-title">Be Wowed By Our Beautiful And Unique Ambience</h3>
                         <p className="card-text">
@@ -27,7 +31,7 @@ const DiningExperience = () => {
                     {/* Column 2 */}
                     <div className="dining-card">
                         <div className="img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Award Winning Service" className="dining-img" />
+                            <img src={img2} alt="Award Winning Service" className="dining-img" />
                         </div>
                         <h3 className="card-title">Experience Our Award Winning Service</h3>
                         <p className="card-text">
@@ -38,7 +42,7 @@ const DiningExperience = () => {
                     {/* Column 3 */}
                     <div className="dining-card">
                         <div className="img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Exquisite Creations" className="dining-img" />
+                            <img src={img3} alt="Exquisite Creations" className="dining-img" />
                         </div>
                         <h3 className="card-title">Exquisite Creations By Award-Winning Chefs</h3>
                         <p className="card-text">

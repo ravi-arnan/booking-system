@@ -1,5 +1,6 @@
 import React from 'react';
 import './GuestReviews.css';
+import googleLogo from '../assets/Google_Icons-09-512.webp';
 
 const GuestReviews = () => {
     return (
@@ -14,7 +15,7 @@ const GuestReviews = () => {
                         <p className="review-content">
                             It was delicious ! The service is extremely well too! The concept is very interesting as it gives you the possibility of trying all tastes of Balinese food. Using stamps on the card :) it was fun and yummy ! I strongly recommend !
                         </p>
-                        <div className="google-logo">G</div>
+                        <img src={googleLogo} alt="Google" className="google-logo-img" />
                     </div>
 
                     {/* Review 2 */}
@@ -23,7 +24,7 @@ const GuestReviews = () => {
                         <p className="review-content">
                             Absolutely fantastic all round! As a vegetarian, it's not easy to get access to really good and flavorsome pure vegetarian Balinese cuisine. This is Bali were fantastic! Staff were so friendly and accommodating.
                         </p>
-                        <div className="google-logo">G</div>
+                        <img src={googleLogo} alt="Google" className="google-logo-img" />
                     </div>
 
                     {/* Review 3 */}
@@ -32,7 +33,7 @@ const GuestReviews = () => {
                         <p className="review-content">
                             Delicious Balinese food. Attentive and kind staff. Trying a little bit of everything is my preferred style of eating, so I enjoyed the stamp card concept. I highly recommend trying the jackfruit curry!
                         </p>
-                        <div className="google-logo">G</div>
+                        <img src={googleLogo} alt="Google" className="google-logo-img" />
                     </div>
                 </div>
             </div>

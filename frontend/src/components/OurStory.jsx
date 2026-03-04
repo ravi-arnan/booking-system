@@ -1,5 +1,8 @@
 import React from 'react';
 import './OurStory.css';
+import storyImg from '../assets/THIS-IS-BALI-Indonesian-Restaurant.jpg';
+import badgeImg from '../assets/Xpert_badge-2.png';
+import signatureImg from '../assets/tib-signature.svg';
 
 const OurStory = () => {
     return (
@@ -39,18 +42,22 @@ const OurStory = () => {
                                 We serve all of this in a warm, welcoming space designed to make you feel right at home.
                             </p>
 
-                            <p className="story-signature mt-3">
-                                Adina & the THIS IS BALI team
-                            </p>
+                            <div className="story-signature-container mt-3">
+                                <img src={signatureImg} alt="Much Love Signature" className="signature-img" />
+                                <p className="story-signature-text">
+                                    Adina & the THIS IS BALI team
+                                </p>
+                            </div>
                         </div>
                     </div>
 
                     <div className="story-image-container">
-                        <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="THIS IS BALI Interior" className="story-img" />
+                        <img src={storyImg} alt="THIS IS BALI Interior" className="story-img" />
                         <div className="story-img-badge">
-                            <svg viewBox="0 0 100 100" className="badge-svg">
-                                <path d="M50 5 L55 15 L66 12 L68 23 L79 24 L77 35 L86 40 L80 50 L86 60 L77 65 L79 76 L68 77 L66 88 L55 85 L50 95 L45 85 L34 88 L32 77 L21 76 L23 65 L14 60 L20 50 L14 40 L23 35 L21 24 L32 23 L34 12 L45 15 Z" fill="#ffe100" />
-                            </svg>
+                            <img src={badgeImg} alt="Award Background" className="badge-img-asset" />
+                            <div className="badge-text">
+                                AWARD<br />WINNING<br /><span>-2023-</span>
+                            </div>
                         </div>
                     </div>
                 </div>
