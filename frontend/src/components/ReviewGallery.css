@@ -57,63 +57,70 @@
 }
 
 .food-gallery {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    height: 250px;
-    /* fixed height for consistent horizontal row */
+    /* No gap for edge-to-edge layout like the screenshot */
 }
 
 .food-img {
-    flex: 1;
-    width: 25%;
-    height: 100%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Force square images */
     object-fit: cover;
+    display: block;
+    /* Remove inline bottom space */
 }
 
-.bottom-action-bar {
-    background-color: #fcfcfc;
-    padding: 20px;
-    border-top: 1px solid var(--border-color);
-    text-align: center;
-}
-
-.action-quote {
-    font-style: italic;
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.action-buttons {
+.explore-menu-section {
+    background-color: var(--secondary-color);
+    padding: 60px 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
 
-.max-w-xs {
-    max-width: 250px;
+.btn-explore-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffffff;
+    color: var(--text-dark);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.btn-explore-menu:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--text-dark);
 }
 
 @media (max-width: 900px) {
     .food-gallery {
-        flex-wrap: wrap;
-        height: auto;
-    }
-
-    .food-img {
-        width: 50%;
-        height: 200px;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .action-buttons {
-        flex-direction: column;
-        align-items: center;
+    .food-gallery {
+        grid-template-columns: 1fr;
     }
 
-    .food-img {
-        width: 100%;
-        height: 250px;
+    .btn-explore-menu {
+        padding: 14px 30px;
+        font-size: 0.9rem;
     }
 }
