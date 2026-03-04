@@ -24,6 +24,8 @@ const ReservationPage = ({ onClose }) => {
     });
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [apiError, setApiError] = useState('');
 
     const validate = () => {
         const e = {};
@@ -42,14 +44,49 @@ const ReservationPage = ({ onClose }) => {
         if (errors[name]) setErrors(prev => ({ ...prev, [name]: undefined }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const e2 = validate();
         if (Object.keys(e2).length > 0) {
             setErrors(e2);
             return;
         }
-        setSubmitted(true);
+
+        setLoading(true);
+        setApiError('');
+
+        try {
+            const response = await fetch('http://localhost:3001/api/reservations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    phone: `+62${form.phone}`,
+                    partySize: form.partySize,
+                    date: form.date,
+                    time: form.time,
+                    specialRequest: form.specialRequest,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                if (data.errors) {
+                    setErrors(data.errors);
+                } else {
+                    setApiError(data.error || 'Something went wrong. Please try again.');
+                }
+                return;
+            }
+
+            setSubmitted(true);
+        } catch (err) {
+            setApiError('Cannot connect to the server. Please make sure the backend is running.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const timeSlots = generateTimeSlots(form.date);
@@ -215,8 +252,16 @@ const ReservationPage = ({ onClose }) => {
                             </div>
                         </div>
 
-                        <button type="submit" className="btn-confirm-reservation">
-                            Confirm Reservation
+                        {apiError && (
+                            <p className="form-api-error">{apiError}</p>
+                        )}
+
+                        <button
+                            type="submit"
+                            className="btn-confirm-reservation"
+                            disabled={loading}
+                        >
+                            {loading ? 'Submitting…' : 'Confirm Reservation'}
                         </button>
                     </form>
                 )}

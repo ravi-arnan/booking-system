@@ -234,6 +234,17 @@
     margin-bottom: 5px;
 }
 
+.form-api-error {
+    font-size: 0.9rem;
+    color: #e23b3b;
+    background: #fff3f3;
+    border: 1px solid #f8c8c8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
 /* Confirm Button */
 .btn-confirm-reservation {
     display: block;
