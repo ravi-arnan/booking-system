@@ -21,6 +21,12 @@ const AdminCalendar = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [currentView, setCurrentView] = useState('month');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isNotesOpen, setIsNotesOpen] = useState(false);
+    const [notes, setNotes] = useState(() => localStorage.getItem('adminNotes') || '');
+
+    useEffect(() => {
+        localStorage.setItem('adminNotes', notes);
+    }, [notes]);
 
     useEffect(() => {
         const fetchReservations = async () => {
@@ -164,13 +170,6 @@ const AdminCalendar = () => {
                 {/* SIDEBAR */}
                 {isSidebarOpen && (
                     <aside className="gc-sidebar">
-                        <button className="gc-create-btn">
-                            <div className="gc-create-icon-wrapper">
-                                <Plus size={24} color="#ea4335" />
-                            </div>
-                            <span>Buat</span>
-                        </button>
-
                         <div className="gc-mini-calendar">
                             <MiniCalendar
                                 onChange={setCurrentDate}
@@ -206,6 +205,41 @@ const AdminCalendar = () => {
                                 )}
                             </div>
                         </div>
+
+                        <button
+                            className="gc-create-btn gc-notes-btn"
+                            style={{ margin: '32px 0 16px 0' }}
+                            onClick={() => setIsNotesOpen(!isNotesOpen)}
+                        >
+                            <div className="gc-create-icon-wrapper">
+                                <Plus size={24} color="#ea4335" />
+                            </div>
+                            <span>Notes</span>
+                        </button>
+
+                        {isNotesOpen && (
+                            <div className="gc-notes-container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                <textarea
+                                    className="gc-notes-textarea"
+                                    placeholder="Tulis notes di sini..."
+                                    value={notes}
+                                    onChange={(e) => setNotes(e.target.value)}
+                                    style={{
+                                        width: '100%',
+                                        minHeight: '120px',
+                                        padding: '10px',
+                                        borderRadius: '8px',
+                                        border: '1px solid #dadce0',
+                                        fontSize: '13px',
+                                        color: '#3c4043',
+                                        resize: 'vertical',
+                                        outline: 'none',
+                                        fontFamily: 'inherit',
+                                        backgroundColor: '#f8f9fa'
+                                    }}
+                                />
+                            </div>
+                        )}
                     </aside>
                 )}
 
