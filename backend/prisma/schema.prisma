@@ -9,6 +9,7 @@ datasource db {
   provider = "postgresql"
 }
 
+
 model Reservation {
   id             Int      @id @default(autoincrement())
   name           String

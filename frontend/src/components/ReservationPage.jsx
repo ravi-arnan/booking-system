@@ -81,6 +81,18 @@ const ReservationPage = ({ onClose }) => {
                 return;
             }
 
+            // Buka halaman konfirmasi di tab baru
+            const params = new URLSearchParams({
+                name: form.name,
+                email: form.email,
+                phone: form.phone,
+                partySize: form.partySize,
+                date: form.date,
+                time: form.time,
+                specialRequest: form.specialRequest || '',
+                bookingId: data.data?.id || '',
+            });
+            window.open(`/#confirmation?${params.toString()}`, '_blank');
             setSubmitted(true);
         } catch (err) {
             setApiError('Cannot connect to the server. Please make sure the backend is running.');
