@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import logoSvg from '../assets/black.svg';
+import AdminLoginModal from './AdminLoginModal';
 
 const Navbar = ({ onBookTable }) => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -37,7 +39,7 @@ const Navbar = ({ onBookTable }) => {
                             </>
                         )}
                     </button>
-                    <div className="logo">
+                    <div className="logo" onClick={() => setIsLoginModalOpen(true)} style={{ cursor: 'pointer' }}>
                         <img src={logoSvg} alt="THIS IS BALI" className="navbar-logo-img" />
                     </div>
                 </div>
@@ -57,6 +59,15 @@ const Navbar = ({ onBookTable }) => {
                     <li><a href="#team" onClick={toggleMenu}>Join Our Team</a></li>
                 </ul>
             </div>
+
+            <AdminLoginModal
+                isOpen={isLoginModalOpen}
+                onClose={() => setIsLoginModalOpen(false)}
+                onLoginSuccess={() => {
+                    setIsLoginModalOpen(false);
+                    window.location.hash = '#admin';
+                }}
+            />
         </nav>
     );
 };

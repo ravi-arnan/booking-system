@@ -88,7 +88,12 @@ function App() {
   }
 
   if (currentHash === '#admin') {
-    return <AdminCalendar />;
+    if (localStorage.getItem('isAdminLoggedIn') === 'true') {
+      return <AdminCalendar />;
+    } else {
+      window.location.hash = '#';
+      return null;
+    }
   }
 
   return (
