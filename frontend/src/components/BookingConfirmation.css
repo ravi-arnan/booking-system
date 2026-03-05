@@ -311,3 +311,71 @@
         padding: 20px;
     }
 }
+/* Modal Styles */
+.bc-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.bc-modal {
+    background: #fff;
+    width: 400px;
+    max-width: 90%;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.bc-modal-icon {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #7cd1f9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    color: #7cd1f9;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: serif;
+    font-style: italic;
+}
+
+.bc-modal h2 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.bc-modal p {
+    color: #666;
+    margin: 0 0 25px;
+    font-size: 16px;
+}
+
+.bc-modal-btn {
+    background-color: #3085d6;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.bc-modal-btn:hover {
+    background-color: #2778c4;
+}

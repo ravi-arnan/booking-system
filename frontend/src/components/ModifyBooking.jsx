@@ -21,7 +21,7 @@ const SuccessModal = ({ onClose }) => {
                 </div>
                 <h2>Success</h2>
                 <p>Update success</p>
-                <button className="bc-modal-btn" onClick={onClose}>Okey</button>
+                <button type="button" className="bc-modal-btn" onClick={onClose}>Okey</button>
             </div>
         </div>
     );
