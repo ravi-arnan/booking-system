@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import ReservationPage from './components/ReservationPage';
 import BookingConfirmation from './components/BookingConfirmation';
 import ModifyBooking from './components/ModifyBooking';
+import AdminCalendar from './components/AdminCalendar';
 
 const getHash = () => window.location.hash.split('?')[0];
 
@@ -84,6 +85,10 @@ function App() {
         }}
       />
     );
+  }
+
+  if (currentHash === '#admin') {
+    return <AdminCalendar />;
   }
 
   return (

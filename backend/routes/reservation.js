@@ -7,6 +7,22 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
 
 
+// GET /api/reservations - Get all reservations
+router.get('/', async (req, res) => {
+    try {
+        const reservations = await prisma.reservation.findMany({
+            orderBy: [
+                { date: 'asc' },
+                { time: 'asc' },
+            ],
+        });
+        res.json(reservations);
+    } catch (error) {
+        console.error('Failed to fetch reservations:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 // POST /api/reservations - Create a new reservation
 router.post('/', async (req, res) => {
     try {
