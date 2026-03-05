@@ -6,8 +6,11 @@ const generateTimeSlots = (date) => {
     if (!date) return [];
     const slots = [];
     for (let h = 11; h <= 22; h++) {
-        slots.push(`${h.toString().padStart(2, '0')}:00`);
-        if (h < 22) slots.push(`${h.toString().padStart(2, '0')}:30`);
+        for (let m = 0; m < 60; m += 5) {
+            // Jangan generate lewat jam 22:00
+            if (h === 22 && m > 0) break;
+            slots.push(`${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`);
+        }
     }
     return slots;
 };
@@ -239,8 +242,8 @@ const ModifyBooking = ({ bookingData, onBack }) => {
                         <label className="form-label">Preferred Time</label>
                         {!form.date && <p className="form-note">*Please select a date first</p>}
 
-                        <div className="time-slots-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginTop: '10px' }}>
-                            {timeSlots.slice(0, 8).map(t => (
+                        <div className="time-slots-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginTop: '10px', maxHeight: '250px', overflowY: 'auto', paddingRight: '5px' }}>
+                            {timeSlots.map(t => (
                                 <div
                                     key={t}
                                     className={`time-slot-btn ${form.time === t ? 'selected' : ''}`}
