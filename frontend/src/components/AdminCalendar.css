@@ -1,122 +1,535 @@
-
-.admin-calendar-container {
-    padding: 30px;
-    background-color: #f8fafc;
-    min-height: 100vh;
+/* Google Calendar Clone Colors & Fonts */
+:root {
+    --gc-blue: #1a73e8;
+    --gc-blue-hover: #1b66c9;
+    --gc-border: #dadce0;
+    --gc-text-main: #3c4043;
+    --gc-text-sub: #5f6368;
+    --gc-bg-hover: #f1f3f4;
+    --gc-bg-today: #e8f0fe;
+    --gc-bg-main: #ffffff;
+    --gc-event-bg: #039be5;
+    --gc-event-hover: #0288d1;
+    --gc-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    --gc-shadow-hover: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 }
 
-.admin-calendar-title {
-    margin-top: 0;
-    margin-bottom: 24px;
-    font-size: 28px;
-    color: #1e293b;
-    font-weight: 700;
+.gc-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Open Sans', 'Roboto', 'Inter', sans-serif;
+    color: var(--gc-text-main);
+    background-color: var(--gc-bg-main);
+    overflow: hidden;
 }
 
-.calendar-wrapper {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+/* Base resets inside the dashboard so it doesn't leak */
+.gc-layout * {
+    box-sizing: border-box;
 }
 
-.admin-loading, .admin-error {
+/* TOP HEADER */
+.gc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 8px;
+    border-bottom: 1px solid var(--gc-border);
+    flex-shrink: 0;
+}
+
+.gc-header-left,
+.gc-header-center,
+.gc-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.gc-header-left {
+    width: 238px;
+    /* Standard sidebar width */
+    padding-left: 12px;
+}
+
+.gc-logo-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.gc-logo-icon {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.gc-logo-text {
+    font-size: 22px;
+    color: var(--gc-text-sub);
+    font-weight: 400;
+}
+
+.gc-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--gc-text-sub);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    font-size: 1.25rem;
-    color: #475569;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.admin-error {
-    color: #ef4444;
+.gc-icon-btn:hover {
+    background-color: var(--gc-bg-hover);
 }
 
-/* Base custom styling for big calendar */
-.rbc-calendar {
-    font-family: inherit;
+.gc-header-center {
+    flex: 1;
+    gap: 16px;
 }
 
-.rbc-event {
-    background-color: #0ea5e9;
+.gc-today-btn {
+    border: 1px solid var(--gc-border);
+    background: transparent;
     border-radius: 4px;
-    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--gc-text-main);
+    font-weight: 500;
+    cursor: pointer;
 }
 
-.rbc-event.rbc-selected {
-    background-color: #0284c7;
+.gc-today-btn:hover {
+    background-color: var(--gc-bg-hover);
+}
+
+.gc-nav-arrows {
+    display: flex;
+    align-items: center;
+}
+
+.gc-date-label {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gc-text-main);
+    margin: 0 0 0 8px;
+}
+
+.gc-header-right {
+    padding-right: 12px;
+    gap: 8px;
+}
+
+.gc-view-selector {
+    margin-left: 8px;
+    margin-right: 16px;
+}
+
+.gc-view-select {
+    border: 1px solid var(--gc-border);
+    background: transparent;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--gc-text-main);
+    font-weight: 500;
+    cursor: pointer;
+    height: 36px;
+    outline: none;
+}
+
+.gc-view-select:hover {
+    background-color: var(--gc-bg-hover);
+}
+
+.gc-profile-actions {
+    display: flex;
+    align-items: center;
+}
+
+.gc-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #d93025;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.gc-logout-btn:hover {
+    background-color: #b3261e;
+    box-shadow: var(--gc-shadow);
+}
+
+/* MAIN CONTAINER LAYER */
+.gc-main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* SIDEBAR */
+.gc-sidebar {
+    width: 256px;
+    padding: 16px 20px 16px 12px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border-right: 1px solid var(--gc-border);
+    background-color: var(--gc-bg-main);
+}
+
+.gc-create-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--gc-bg-main);
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    padding: 0 24px 0 0;
+    height: 48px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: var(--gc-text-main);
+    font-size: 14px;
+    font-weight: 500;
+    width: fit-content;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.gc-create-btn:hover {
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    background-color: #f8f9fa;
+}
+
+.gc-create-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overriding react-calendar to look like Google Mini Calendar */
+.gc-mini-calendar .react-calendar {
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    line-height: 1.125em;
+}
+
+.gc-mini-calendar .react-calendar__navigation {
+    margin-bottom: 0;
+    height: 36px;
+}
+
+.gc-mini-calendar .react-calendar__navigation button {
+    min-width: 30px;
+    background: none;
+    font-size: 14px;
+    color: var(--gc-text-main);
+    font-weight: 500;
+}
+
+.gc-mini-calendar .react-calendar__navigation button:hover {
+    background-color: var(--gc-bg-hover);
+    border-radius: 4px;
+}
+
+.gc-mini-calendar .react-calendar__month-view__weekdays {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--gc-text-sub);
+    font-weight: 500;
+
+    abbr {
+        text-decoration: none;
+    }
+}
+
+.gc-mini-calendar .react-calendar__tile {
+    font-size: 12px;
+    padding: 0.5em 0.25em;
+    color: var(--gc-text-main);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gc-mini-calendar .react-calendar__tile:hover {
+    background-color: var(--gc-bg-hover);
+}
+
+.gc-mini-calendar .react-calendar__tile--now {
+    background: var(--gc-blue);
+    color: white;
+}
+
+.gc-mini-calendar .react-calendar__tile--now:hover {
+    background: var(--gc-blue-hover);
+}
+
+.gc-mini-calendar .react-calendar__tile--active {
+    background: var(--gc-bg-today);
+    color: var(--gc-blue);
+}
+
+.gc-sidebar-section {
+    margin-top: 24px;
+}
+
+.gc-section-header {
+    display: flex;
+    align-items: center;
+    color: var(--gc-text-sub);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    gap: 8px;
+}
+
+.gc-today-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gc-no-reservations {
+    font-size: 13px;
+    color: var(--gc-text-sub);
+    font-style: italic;
+    padding: 8px 0;
+}
+
+.gc-agenda-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    gap: 12px;
+}
+
+.gc-agenda-item:hover {
+    background-color: var(--gc-bg-hover);
+}
+
+.gc-agenda-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--gc-event-bg);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.gc-agenda-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gc-agenda-time {
+    font-size: 12px;
+    color: var(--gc-text-sub);
+    font-weight: 500;
+}
+
+.gc-agenda-title {
+    font-size: 13px;
+    color: var(--gc-text-main);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* BIG CALENDAR CONTENT */
+.gc-calendar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    /* BigCalendar handles internal scroll */
+}
+
+/* Overriding React Big Calendar styling to match Google Calendar */
+.rbc-calendar {
+    border: none !important;
+}
+
+.rbc-header {
+    border-bottom: 1px solid var(--gc-border) !important;
+    border-left: 1px solid var(--gc-border) !important;
+    padding: 10px 0 !important;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 500 !important;
+    color: var(--gc-text-sub);
+}
+
+.rbc-header+.rbc-header {
+    border-left: 1px solid var(--gc-border) !important;
+}
+
+.rbc-month-view,
+.rbc-time-view {
+    border: none !important;
+}
+
+.rbc-day-bg {
+    border-left: 1px solid var(--gc-border) !important;
+}
+
+.rbc-month-row {
+    border-top: 1px solid var(--gc-border) !important;
 }
 
 .rbc-today {
-    background-color: #f0fdf4;
+    background-color: #f8fbff !important;
+}
+
+.rbc-event {
+    background-color: var(--gc-event-bg) !important;
+    border-radius: 4px !important;
+    border: 1px solid transparent !important;
+    color: white !important;
+    font-size: 12px !important;
+    padding: 2px 6px !important;
+    margin-top: 2px;
+}
+
+.rbc-event:hover {
+    background-color: var(--gc-event-hover) !important;
 }
 
 /* Modal Styling */
-.admin-modal-overlay {
+.gc-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(32, 33, 36, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 50;
-    backdrop-filter: blur(4px);
+    z-index: 1000;
 }
 
-.admin-modal {
+.gc-modal {
     background: white;
     width: 100%;
-    max-width: 500px;
-    border-radius: 12px;
+    max-width: 448px;
+    border-radius: 8px;
     padding: 24px;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    animation: modalSlideIn 0.2s ease-out;
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+    animation: modalSlide 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes modalSlideIn {
-    from { opacity: 0; transform: translateY(10px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes modalSlide {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.admin-modal-header {
+.gc-modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
-.admin-modal-header h2 {
+.gc-modal-header h2 {
     margin: 0;
-    font-size: 1.25rem;
-    color: #0f172a;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gc-text-main);
 }
 
-.admin-close-btn {
+.gc-close-btn {
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
-    color: #64748b;
-    padding: 4px;
+    color: var(--gc-text-sub);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.admin-close-btn:hover {
-    color: #0f172a;
+.gc-close-btn:hover {
+    background-color: var(--gc-bg-hover);
 }
 
-.admin-modal-body p {
-    margin: 12px 0;
-    font-size: 1rem;
-    color: #334155;
+.gc-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gc-modal-row {
+    display: flex;
+    font-size: 14px;
     line-height: 1.5;
 }
 
-.admin-modal-body strong {
-    color: #0f172a;
-    display: inline-block;
-    width: 130px;
+.gc-modal-label {
+    min-width: 100px;
+    color: var(--gc-text-sub);
+    font-weight: 500;
 }
 
+.gc-modal-value {
+    color: var(--gc-text-main);
+    flex: 1;
+}
+
+.gc-loading,
+.gc-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 20px;
+    color: var(--gc-text-sub);
+}
+
+.gc-error {
+    color: #d93025;
+}
+
+/* Click Animation for Buttons */
+.gc-icon-btn:active,
+.gc-today-btn:active,
+.gc-view-select:active,
+.gc-logout-btn:active,
+.gc-create-btn:active,
+.gc-close-btn:active,
+.gc-mini-calendar .react-calendar__navigation button:active {
+    transform: scale(0.92);
+    transition: transform 0.1s ease-in-out;
+}
