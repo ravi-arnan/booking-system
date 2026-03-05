@@ -1,5 +1,7 @@
 import React from 'react';
+import { Facebook, Instagram, Music, Youtube } from 'lucide-react';
 import './Footer.css';
+import logo from '../assets/TIB-LIGHT-LOGO-FOR-HOMEPAGE.png';
 
 const Footer = () => {
     return (
@@ -8,7 +10,7 @@ const Footer = () => {
 
                 {/* Left Column: Brand & Details */}
                 <div className="footer-col footer-brand">
-                    <div className="footer-logo">THIS <span className="logo-is">IS</span> BALI</div>
+                    <img src={logo} alt="This is Bali" className="footer-logo" />
                     <p className="footer-mb">2026 All rights reserved.</p>
                     <div className="footer-address">
                         <p>PT Unicom Food And Services</p>
@@ -31,10 +33,18 @@ const Footer = () => {
                 <div className="footer-col footer-social">
                     <h4 className="footer-heading">FOLLOW US ON</h4>
                     <div className="social-icons">
-                        <span className="social-icon">f</span>
-                        <span className="social-icon pt-1">📷</span>
-                        <span className="social-icon">♪</span>
-                        <span className="social-icon">▶</span>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
+                            <Facebook size={22} />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
+                            <Instagram size={22} />
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="TikTok">
+                            <Music size={22} />
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
+                            <Youtube size={22} />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -12,62 +12,66 @@
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 80px;
     margin-bottom: 60px;
 }
 
 .footer-col {
     flex: 1;
-    min-width: 250px;
+    min-width: 220px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footer-logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+    height: 38px;
+    width: auto;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.logo-is {
-    font-size: 0.8rem;
-    border: 1px solid #ffffff;
-    padding: 0 2px;
-    letter-spacing: 0;
+    object-fit: contain;
 }
 
 .footer-mb {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: #999;
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .footer-address {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: #999;
-    line-height: 1.6;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.footer-address p {
+    margin: 0;
+    padding: 0;
 }
 
 .footer-heading {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     letter-spacing: 1.5px;
     margin-bottom: 20px;
     color: #cccccc;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .footer-payments {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .payment-icons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 /* Simulated payment icons for aesthetics */
@@ -75,12 +79,12 @@
     background: #ffffff;
     color: #000000;
     border-radius: 4px;
-    height: 25px;
-    width: 40px;
+    height: 32px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     font-weight: 800;
 }
 
@@ -90,20 +94,20 @@
 }
 
 .mastercard div {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     position: absolute;
 }
 
 .mastercard div:nth-child(1) {
     background: #eb001b;
-    left: 8px;
+    left: 10px;
 }
 
 .mastercard div:nth-child(2) {
     background: #f79e1b;
-    right: 8px;
+    right: 10px;
     opacity: 0.8;
 }
 
@@ -121,19 +125,21 @@
 
 .social-icon {
     color: #ffffff;
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: color 0.3s ease;
-    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .social-icon:hover {
-    color: var(--primary-color);
+    color: #cccccc;
+    transform: translateY(-2px);
 }
 
-.pt-1 {
-    padding-top: 2px;
-    font-size: 1.1rem;
+.social-icon svg {
+    stroke-width: 1.8;
 }
 
 .footer-bottom {
